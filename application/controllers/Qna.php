@@ -28,19 +28,22 @@ class Qna extends CI_Controller
     {
         $data['post'] = $this->Qna_model->getbyId($id);
         $data['comments'] = $this->Comment_model->getByPost($id);
+        $this->load->view('templates/header');
+        $this->load->view('qna/qna_detail', $data);
+        $this->load->view('templates/footer');
+        $this->Qna_model->hit($id);
+    }
+
+    public function auth($id)
+    {
+        $target = $this->Qna_model->getbyId($id);
         if ($this->session->userdata('is_admin')) {
-            $this->load->view('templates/header');
-            $this->load->view('qna/qna_detail', $data);
-            $this->load->view('templates/footer');
-            $this->Qna_model->hit($id);
+            $this->view($id);
         } else {
             if ($_POST) {
-                if($this->input->post('password') == $data['post']->password)
+                if($this->input->post('password') == $target->password)
                 {
-                    $this->load->view('templates/header');
-                    $this->load->view('qna/qna_detail', $data);
-                    $this->load->view('templates/footer');
-                    $this->Qna_model->hit($id);
+                    $this->view($id);
                 }
                 else {
                     $this->session->set_flashdata('message', '비밀번호가 틀렸습니다.');
@@ -52,7 +55,6 @@ class Qna extends CI_Controller
                 $this->load->view('templates/footer');
             }
         }
-
     }
 
     public function write()
