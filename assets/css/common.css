@@ -1,0 +1,397 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+/*============ common ============*/
+* {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+
+li {
+    list-style: none outside none;
+}
+
+a {
+    color: black;
+    text-decoration: none !important;
+    text-decoration-color: black;
+}
+
+.center {
+    text-align: center;
+}
+
+.on {
+    display: block !important;
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+}
+
+div.section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+div.section h2 {
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #c2c2c2;
+    color: black;
+    padding: 3px 10px;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #f1f1f1;
+    color: black;
+    border: 1px solid #c2c2c2;
+}
+
+form.write_form span.error,
+form.write_form div.error{
+    margin-left: 10px;
+    color: crimson;
+}
+
+th {
+    text-align: center;
+}
+
+/*============ header ============*/
+div.header {
+    border-top: 6px solid darkred;
+    border-bottom: 1px solid gainsboro;
+    height: 130px;
+}
+
+div.top_menu {
+    text-align: right;
+    margin-top: 10px;
+}
+
+div.top_menu span {
+    padding: 0 5px;
+}
+
+div.top_menu span a {
+    text-decoration: none;
+}
+
+div.menu_bar {
+    height: 90px;
+}
+
+div.logo {
+    height: 90px;
+    float: left;
+}
+
+div.logo h1 {
+    margin: 25px 0;
+}
+
+div.logo h1 a {
+    color: #bb0000;
+    font-weight: bolder;
+}
+
+div.menu {
+    position: relative;
+    float: right;
+    height: 90px;
+    line-height: 90px;
+}
+
+div.menu ul li {
+    float: left;
+    margin: 0 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+div.menu ul li:hover {
+    border-bottom: 2px solid black;
+}
+
+ul.sub_wrap {
+    height: 50px;
+    display: none;
+    position: absolute;
+    z-index: 100;
+    top: 130px;
+    left: 0;
+    right: 0;
+    background: white;
+}
+
+ul.sub_wrap li.container {
+    height: 100%;
+    padding: 10px;
+}
+
+ul.sub_wrap li.container span {
+    margin: 0 50px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    line-height: 30px;
+    height: 30px;
+}
+
+/*============ welcome ============*/
+.carousel {
+    height: 600px;
+    overflow: hidden;
+}
+
+div.welcome_section div.container div.lt {
+    padding: 20px;
+}
+
+div.welcome_section div.container div.lt ul {
+    padding: 0;
+}
+
+div.welcome_section div.container div.lt div.lt_title {
+    padding: 10px;
+    border-bottom: 1px solid black;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+div.welcome_section div.container div.lt div.lt_title span {
+    float: right;
+}
+
+div.welcome_section div.container div.lt div.lt_body ul li {
+    padding: 10px 10px;
+}
+
+div.welcome_section div.container div.lt div.lt_body {
+    height: 200px;
+}
+
+div.welcome_section div.container div.lt div.lt_body div#map {
+    width: 100%;
+    height: 200px;
+}
+
+/*============ notice ============*/
+
+div.notice div.container table {
+    width: 100%;
+    margin: 0 auto 10px auto;
+    border-color: gainsboro;
+}
+
+div.notice div.container table thead th {
+    text-align: center;
+    padding: 10px 0;
+    background: #efefee;
+}
+
+div.notice th,
+div.notice td {
+    border: 1px solid #ccc;
+}
+
+div.notice div.container table tbody tr th,
+div.notice div.container table tbody tr td {
+    padding: 10px;
+}
+
+div.notice div.container table tbody tr th {
+    font-weight: initial;
+    text-align: center;
+}
+
+/*============ notice_detail ============*/
+div.notice_detail table {
+    width: 100%;
+}
+
+div.notice_detail table tbody tr th {
+    text-align: center;
+    width: 200px;
+    padding: 10px;
+    background-color: #efefee;
+    border: 1px solid #ccc;
+}
+
+div.notice_detail table tbody tr td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+div.notice_detail table tbody tr th.foot_menu {
+    text-align:center;
+    padding:15px;
+    background: none;
+}
+
+div.notice_detail table tfoot tr th {
+    background-color: #efefee;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+div.notice_detail table tbody tr td textarea {
+    width: 100%;
+}
+
+div.notice_detail table tbody tr td.detail_content {
+    height: 300px;
+}
+
+/*============ notice_write ============*/
+form.write_form table {
+    width: 100%;
+}
+
+form.write_form table tbody tr th {
+    text-align: center;
+    width: 200px;
+    padding: 10px;
+    background-color: #efefee;
+    border: 1px solid #ccc;
+}
+
+form.write_form table tbody tr td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+form.write_form table tfoot tr th {
+    text-align:center;
+    padding:15px;
+}
+
+form.write_form table tbody tr td textarea {
+    width: 100%;
+}
+
+form.write_form table tbody tr td div.uploaded_file {
+    margin-top:10px;
+}
+
+/*============ login ============*/
+div.login form table {
+    width: 35%;
+    margin: 0 auto;
+}
+
+div.login form table tr td.submit_td {
+    text-align: center;
+}
+
+div.login form table tr td.submit_td button {
+    width: 70px;
+    height: 70px;
+}
+
+div.login form table tr td.input_td {
+    text-align : right;
+    padding: 5px 15px 5px 0;
+}
+
+div.login form table tr td.input_td input {
+    margin-left: 5px;
+}
+
+/*============ comment ============*/
+.comment_form {
+    height: 100px;
+    padding: 1%;
+    border: 1px solid #ccc;
+}
+
+.comment_form textarea {
+    width: 90%;
+    height: 100%;
+}
+
+.comment_form button {
+    width: 9%;
+    height: 100%;
+}
+
+.comment {
+    border-bottom: 1px dotted gainsboro;
+}
+
+.comment td {
+    padding: 10px;
+}
+
+h5.comment_writer {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+span.comment_date {
+    font-size: 12px;
+}
+
+/*============ qna_auth ============*/
+.auth table {
+    width: 30%;
+    margin: 10px auto;
+}
+
+.auth .input_td {
+    padding: 10px;
+    text-align: center;
+}
+
+.auth .input_td label {
+    margin-right: 10px;
+}
+
+.auth .submit_td {
+    text-align: center;
+    margin: 10px;
+}
+
+.auth .submit_td button {
+    width: 100px;
+}
+
+    /*============ way ============*/
+div.way div.container h4 i {
+    margin-right: 10px;
+}
+
+div.way div.container div#map {
+    width: 100%;
+    height: 500px;
+    margin-top: 20px;
+}
+
+
+/*============ footer ============*/
+
+div.footer {
+    background: #232120;
+    height: 150px;
+}
+
+div.footer div.container div.center h3 {
+    margin-bottom: 20px;
+}
+
+div.footer div.container div.center {
+    font-size: 12px;
+    color: #bbbaba;
+}
