@@ -38,12 +38,12 @@ class Qna extends CI_Controller
     {
         $target = $this->Qna_model->getbyId($id);
         if ($this->session->userdata('is_admin')) {
-            $this->view($id);
+            redirect('qna/'.$id);
         } else {
             if ($_POST) {
                 if($this->input->post('password') == $target->password)
                 {
-                    $this->view($id);
+                    redirect('qna/'.$id);
                 }
                 else {
                     $this->session->set_flashdata('message', '비밀번호가 틀렸습니다.');

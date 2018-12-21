@@ -44,7 +44,7 @@ if ($this->session->flashdata('message')) {
                 <tr>
                     <th><?= $post->id ?></th>
                     <td>
-                        <a href="qna/<?= $post->id ?>"><?= $post->title ?></a> <i class="fas fa-lock"></i>
+                        <a href="qna/auth/<?= $post->id ?>"><?= $post->title ?></a> <i class="fas fa-lock"></i>
                     </td>
                     <th><?= $post->writer ?></th>
                     <th><?= date("m/d", strtotime($post->date)) ?></th>
