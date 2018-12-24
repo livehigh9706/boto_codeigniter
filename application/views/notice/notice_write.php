@@ -38,6 +38,7 @@
                         if ($mode == 'modify' && $post->file1) {
                             ?>
                             <div class="uploaded_file">등록된 파일 : <?= $post->file1 ?></div>
+                            <input type="checkbox" name="delfile[]" value="file1"> 삭제
                             <?php
                         }
                         ?>
@@ -51,6 +52,7 @@
                         if ($mode == 'modify' && $post->file2) {
                             ?>
                             <div class="uploaded_file">등록된 파일 : <?= $post->file2 ?></div>
+                            <input type="checkbox" name="delfile[]" value="file2"> 삭제
                             <?php
                         }
                         ?>

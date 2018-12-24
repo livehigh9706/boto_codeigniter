@@ -37,7 +37,7 @@ class Notice extends CI_Controller
         if ($_POST) {
             $files = array();
             if ($_FILES) {
-                $files = $this->_uploadFile($_FILES['files']);
+                $files = $this->__uploadFile($_FILES['files']);
             }
             $this->Notice_model->add(array(
                 'title' => $this->input->post('title'),
@@ -60,10 +60,20 @@ class Notice extends CI_Controller
     public function modify($id)
     {
         if ($_POST) {
+            var_dump($_FILES);
+            return; 
+            $files = $this->__deleteFile($id, $this->input->post("delfile"));
+            if ($_FILES) {
+                $files = $this->__uploadFile($_FILES['files']);
+            }
             $this->Notice_model->modify(array(
                 'title' => $this->input->post('title'),
                 'content' => $this->input->post('content'),
                 'writer' => '관리자',
+                'file1' => $files[0][0],
+                'file2' => $files[0][1],
+                'file1_path' => $files[1][0],
+                'file2_path' => $files[1][1]
             ), $id);
 
             redirect('notice/'.$id);
@@ -86,7 +96,7 @@ class Notice extends CI_Controller
         redirect('notice');
     }
 
-    private function _uploadFile($files)
+    private function __uploadFile($files)
     {
         $path = 'uploads/file/';
         $count = count($files["name"]);
@@ -127,5 +137,29 @@ class Notice extends CI_Controller
             }
         }
         return array($upfile_name, $uploaded_file);
+    }
+
+    private function __deleteFile($id, $delfiles)
+    {
+        $target = $this->Notice_model->getbyId($id);
+        $result = array(
+            array($target->file1, $target->file2),
+            array($target->file1_path, $target->file2_path)
+        );
+
+        if(in_array('file1', $delfiles))
+        {
+            //unlink($target->file1_path);
+            $result[0][0] = NULL;
+            $result[1][0] = NULL;
+        }
+        if(in_array('file2', $delfiles))
+        {
+            //unlink($target->file2_path);
+            $result[0][1] = NULL;
+            $result[1][1] = NULL;
+        }
+        
+        return $result;
     }
 }

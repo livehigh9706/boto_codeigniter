@@ -284,6 +284,8 @@ form.write_form table tbody tr td textarea {
 
 form.write_form table tbody tr td div.uploaded_file {
     margin-top:10px;
+    display:inline-block;
+    margin-right: 10px;
 }
 
 /*============ login ============*/
