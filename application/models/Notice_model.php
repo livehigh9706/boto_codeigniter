@@ -70,6 +70,5 @@ class Notice_model extends CI_Model {
         $this->db->set('hit', 'hit+1', false);
         $this->db->where('id', $id);
         $this->db->update('notice');
-        echo $this->db->last_query();
     }
 }
