@@ -24,7 +24,7 @@ class Auth extends CI_Controller {
             $admin['password'] == $this->input->post('password'))
         {
             $this->session->set_userdata('is_admin', 'y');
-            $this->session->set_flashdata('admin_success', '로그인성공\n관리자님 환영합니다.');
+            $this->session->set_flashdata('admin_success', '관리자님 환영합니다.');
             redirect('/');
         }
         else
