@@ -48,7 +48,7 @@ class Qna_model extends CI_Model
     }
 
     public function hit($id) {
-        $this->db->set('hit', 'hit+1');
+        $this->db->set('hit', 'hit+1', false);
         $this->db->where('id', $id);
         $this->db->update('qna');
     }

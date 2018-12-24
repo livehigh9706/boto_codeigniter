@@ -31,9 +31,34 @@ class Notice_model extends CI_Model {
     }
 
     public function modify($data, $id) {
-        $this->db->set($data);
+        $this->db->set('title', $data['title']);
+        $this->db->set('content', $data['content']);
+        $this->db->set('writer', $data['writer']);
+
+        if($data['file1'] != NULL && $data['file1_path'] != NULL)
+        {
+            $this->db->set('file1', $data['file1']);
+            $this->db->set('file1_path', $data['file1_path']);
+        }
+        if($data['file1'] == "del" && $data['file1_path'] == "del")
+        {
+            $this->db->set('file1', NULL);
+            $this->db->set('file1_path', NULL);
+        }
+
+        if($data['file2'] != NULL && $data['file2_path'] != NULL)
+        {
+            $this->db->set('file2', $data['file2']);
+            $this->db->set('file2_path', $data['file2_path']);
+        }
+       if($data['file2'] == "del" && $data['file2_path'] == "del")
+        {
+            $this->db->set('file2', NULL);
+            $this->db->set('file2_path', NULL);
+        }
+
         $this->db->where('id', $id);
-        $this->db->update('notice');
+        $this->db->update('notice');   
     }
 
     public function delete($id) {
@@ -42,8 +67,9 @@ class Notice_model extends CI_Model {
     }
 
     public function hit($id) {
-        $this->db->set('hit', 'hit+1');
+        $this->db->set('hit', 'hit+1', false);
         $this->db->where('id', $id);
         $this->db->update('notice');
+        echo $this->db->last_query();
     }
 }

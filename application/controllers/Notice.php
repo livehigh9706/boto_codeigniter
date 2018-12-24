@@ -60,12 +60,14 @@ class Notice extends CI_Controller
     public function modify($id)
     {
         if ($_POST) {
-            var_dump($_FILES);
-            return; 
-            $files = $this->__deleteFile($id, $this->input->post("delfile"));
             if ($_FILES) {
                 $files = $this->__uploadFile($_FILES['files']);
             }
+
+            if($this->input->post("delfile")) {
+                $files = $this->__deleteFile($id, $this->input->post("delfile"));
+            }
+
             $this->Notice_model->modify(array(
                 'title' => $this->input->post('title'),
                 'content' => $this->input->post('content'),
@@ -101,8 +103,8 @@ class Notice extends CI_Controller
         $path = 'uploads/file/';
         $count = count($files["name"]);
         $copied_file_name = array();
-        $upfile_name = array();
-        $uploaded_file = array();
+        $upfile_name = array(NULL, NULL);
+        $uploaded_file = array(NULL, NULL);
 
         for ($i = 0; $i < $count; $i++) {
             $upfile_name[$i] = $files["name"][$i];
@@ -149,17 +151,17 @@ class Notice extends CI_Controller
 
         if(in_array('file1', $delfiles))
         {
-            //unlink($target->file1_path);
-            $result[0][0] = NULL;
-            $result[1][0] = NULL;
+            unlink($target->file1_path);
+            $result[0][0] = "del";
+            $result[1][0] = "del";
         }
         if(in_array('file2', $delfiles))
         {
-            //unlink($target->file2_path);
-            $result[0][1] = NULL;
-            $result[1][1] = NULL;
+            unlink($target->file2_path);
+            $result[0][1] = "del";
+            $result[1][1] = "del";
         }
-        
+
         return $result;
     }
 }
