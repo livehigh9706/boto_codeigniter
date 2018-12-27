@@ -7,6 +7,18 @@
  */
 
 $config = array(
+    'notice'=>array(
+        array(
+            'field' => 'title',
+            'label' => '제목',
+            'rules' => 'required'
+        ),
+        array(
+            'field' => 'content',
+            'label' => '내용',
+            'rules' => 'required'
+        )
+    ), 
     'qna' => array(
         array(
             'field' => 'writer',
