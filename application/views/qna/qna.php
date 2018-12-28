@@ -38,9 +38,7 @@ if ($this->session->flashdata('message')) {
             </tr>
             </thead>
             <tbody>
-            <?php
-            foreach ($qna as $post) {
-                ?>
+            <?php foreach ($qna as $post): ?>
                 <tr>
                     <th><?= $post->id ?></th>
                     <td>
@@ -50,9 +48,7 @@ if ($this->session->flashdata('message')) {
                     <th><?= date("m/d", strtotime($post->date)) ?></th>
                     <th><?= $post->hit ?></th>
                 </tr>
-                <?php
-            }
-            ?>
+            <?php endforeach; ?>
             </tbody>
         </table>
         <a class="btn btn-primary pull-right" href="qna/write">글쓰기</a>

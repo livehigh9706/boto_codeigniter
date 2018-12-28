@@ -37,18 +37,11 @@ $menu = $this->config->item('menu');
         <div class="top_menu">
             <span><a href="<? echo base_url() ?>index.php">HOME</a></span>
             <span>
-                <?php
-                if (!$this->session->userdata('is_admin')) {
-                    ?>
+                <?php if (!$this->session->userdata('is_admin')): ?>
                     <a href="<? echo base_url() ?>index.php/auth">ADMIN</a>
-                    <?php
-                } else {
-                    ?>
+                <?php else: ?>
                     <a href="<? echo base_url() ?>index.php/auth/logout">LOGOUT</a>
-                    <?php
-                }
-                ?>
-
+                <?php endif; ?>
             </span>
         </div>
         <div class="menu_bar">
@@ -57,30 +50,19 @@ $menu = $this->config->item('menu');
             </div>
             <div class="menu">
                 <ul>
-                    <?php
-                        foreach ($menu as $menu_big => $menu_sub) {
-                    ?>
-                    <li><a href="#"><?=$menu_big?></a></li>
-                    <?php
-                        }
-                    ?>
-
+                    <?php foreach ($menu as $menu_big => $menu_sub): ?>
+                        <li><a href="#"><?=$menu_big?></a></li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
         <ul class="sub_wrap">
-            <?php
-            foreach ($menu as $menu_big => $menu_sub) {
-            ?>
+            <?php foreach ($menu as $menu_big => $menu_sub): ?>
                 <li class="container center">
-            <?php
-                foreach ($menu_sub as $key => $value) {
-            ?>
-                <span><a href="<? echo base_url() ?>index.php/<?=$value?>"><?=$key?></a></span>
-            <?php
-                }
-            }
-            ?>
+                <?php foreach ($menu_sub as $key => $value): ?>
+                    <span><a href="<? echo base_url() ?>index.php/<?=$value?>"><?=$key?></a></span>
+            <?php endforeach;
+            endforeach; ?>
         </ul>
     </div>
 </div>

@@ -31,9 +31,7 @@
             </tr>
             </thead>
             <tbody>
-            <?php
-            foreach ($notice as $post) {
-                ?>
+            <?php foreach ($notice as $post) : ?>
                 <tr>
                     <th><?=$post->id?></th>
                     <td>
@@ -43,19 +41,12 @@
                     <th><?= date("m/d", strtotime($post->date))?></th>
                     <th><?=$post->hit?></th>
                 </tr>
-                <?php
-            }
-            ?>
+            <?php endforeach; ?>
             </tbody>
         </table>
         <?php
-        if ($this->session->userdata('is_admin')) {
-            ?>
+        if ($this->session->userdata('is_admin')): ?>
             <a class="btn btn-primary pull-right" href="notice/write">글쓰기</a>
-        <?php
-        }
-        ?>
-
+        <?php endif; ?>
     </div>
-
 </div>
