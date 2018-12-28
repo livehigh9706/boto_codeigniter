@@ -21,6 +21,7 @@
                     <td>
                         <input type="text" id="title" name="title" size="60"
                                value="<?= ($mode == 'modify') ? $post->title : '' ?>"/>
+                        <?php echo form_error('title', '<span class="error"><i class="fas fa-exclamation-circle"></i> ', '</span>'); ?>
                     </td>
                 </tr>
                 <tr>
@@ -28,6 +29,7 @@
                     <td>
                         <textarea name="content" id="content"
                                   rows="15"><?= ($mode == 'modify') ? $post->content : '' ?></textarea>
+                        <?php echo form_error('content', '<div class="error"><i class="fas fa-exclamation-circle"></i> ', '</div>'); ?>
                     </td>
                 </tr>
                 <tr>

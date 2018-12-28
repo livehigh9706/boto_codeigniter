@@ -13,6 +13,7 @@ class Notice extends CI_Controller
         parent::__construct();
         $this->load->model('Notice_model');
         $this->load->helper('form');
+        $this->load->library('form_validation');
     }
 
     public function index()
@@ -34,7 +35,9 @@ class Notice extends CI_Controller
 
     public function write()
     {
-        if ($_POST) {
+        $this->form_validation->set_message('required', '{field}을(를) 입력하여주십시오.');
+
+        if ($this->form_validation->run('notice') == true) {
             $files = array();
             if ($_FILES) {
                 $files = $this->__uploadFile($_FILES['files']);
