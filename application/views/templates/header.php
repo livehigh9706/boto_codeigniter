@@ -5,6 +5,7 @@
  * Date: 2018-12-18
  * Time: 오후 3:03
  */
+$menu = $this->config->item('menu');
 ?>
 
 <!doctype html>
@@ -56,33 +57,30 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="#">회사소개</a></li>
-                    <li><a href="#">메뉴2</a></li>
-                    <li><a href="#">메뉴3</a></li>
-                    <li><a href="#">고객지원</a></li>
+                    <?php
+                        foreach ($menu as $menu_big => $menu_sub) {
+                    ?>
+                    <li><a href="#"><?=$menu_big?></a></li>
+                    <?php
+                        }
+                    ?>
+
                 </ul>
             </div>
         </div>
         <ul class="sub_wrap">
-            <li class="container center">
-                <span><a href="#">인사말</a></span>
-                <span><a href="#">회사소개</a></span>
-                <span><a href="<? echo base_url() ?>index.php/way">오시는길</a></span>
-            </li>
-            <li class="container center">
-                <span>하위메뉴1</span>
-                <span>하위메뉴2</span>
-                <span>하위메뉴3</span>
-            </li>
-            <li class="container center">
-                <span>하위메뉴1</span>
-                <span>하위메뉴2</span>
-                <span>하위메뉴3</span>
-            </li>
-            <li class="container center">
-                <span><a href="<? echo base_url() ?>index.php/notice">공지사항</a></span>
-                <span><a href="<? echo base_url() ?>index.php/qna">온라인문의</a></span>
-            </li>
+            <?php
+            foreach ($menu as $menu_big => $menu_sub) {
+            ?>
+                <li class="container center">
+            <?php
+                foreach ($menu_sub as $key => $value) {
+            ?>
+                <span><a href="<? echo base_url() ?>index.php/<?=$value?>"><?=$key?></a></span>
+            <?php
+                }
+            }
+            ?>
         </ul>
     </div>
 </div>
