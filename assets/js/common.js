@@ -19,7 +19,12 @@ $(document).ready(function() {
 });
 
 function write_comment(writer, post_id) {
-    var content = $('.comment_form textarea').val();
+    var content = $('.comment_form textarea').val().trim();
+    if(content == '')
+    {
+        alert("내용을 입력하여주십시오.");
+        return;
+    }
     $.ajax({
         url: 'comment',
         type: 'POST',
