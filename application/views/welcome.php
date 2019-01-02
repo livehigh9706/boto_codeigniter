@@ -40,18 +40,14 @@ if ($this->session->flashdata('admin_success')) {
                 </div>
                 <div class="lt_body">
                     <ul>
-                        <?php
-                        foreach ($notice_lt as $notice) {
-                            ?>
+                        <?php foreach ($notice_lt as $notice): ?>
                             <a href="<?=base_url()?>index.php/notice/<?=$notice->id?>">
                                 <li>
                                     <?= $notice->title ?>
                                     <span class="pull-right"><?= date("m/d", strtotime($notice->date)) ?></span>
                                 </li>
                             </a>
-                            <?php
-                        }
-                        ?>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -64,9 +60,7 @@ if ($this->session->flashdata('admin_success')) {
                 </div>
                 <div class="lt_body">
                     <ul>
-                        <?php
-                        foreach ($qna_lt as $qna) {
-                            ?>
+                        <?php foreach ($qna_lt as $qna): ?>
                             <a href="<?=base_url()?>index.php/qna/<?=$qna->id?>">
                                 <li>
                                     <?= $qna->title ?>
@@ -74,9 +68,7 @@ if ($this->session->flashdata('admin_success')) {
                                     <span class="pull-right"><?= date("m/d", strtotime($qna->date)) ?></span>
                                 </li>
                             </a>
-                            <?php
-                        }
-                        ?>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>

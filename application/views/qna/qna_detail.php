@@ -71,30 +71,21 @@
                     </button>
                 </td>
             </tr>
-            <?php
-            foreach ($comments as $comment) {
-                ?>
+            <?php foreach ($comments as $comment): ?>
                 <tr class="comment">
                     <td colspan="2">
                         <div class="comment_head">
                             <h5 class="comment_writer"><?= $comment->writer ?></h5>
                             <span class="comment_date"><?= $comment->date ?></span>
-                            <?php
-                            if ($this->session->userdata('is_admin')) {
-                                ?>
+                            <?php if ($this->session->userdata('is_admin')): ?>
                                 <a class="pull-right" href="javascript:;"
                                    onclick="delete_comment('<?= $comment->id ?>')">삭제</a>
-                                <?php
-                            }
-
-                            ?>
+                            <?php endif; ?>
                         </div>
                         <div class="comment_content"><?= $comment->content ?></div>
                     </td>
                 </tr>
-                <?php
-            }
-            ?>
+            <?php endforeach; ?>
             </tfoot>
         </table>
     </div>

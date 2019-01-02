@@ -53,14 +53,10 @@
             <tr>
                 <th colspan="2" class="foot_menu">
                     <a href="<?=base_url()?>index.php/notice" class="btn btn-primary">목록</a>
-                    <?php
-                    if ($this->session->userdata('is_admin')) {
-                        ?>
+                    <?php if ($this->session->userdata('is_admin')): ?>
                         <a href="<?=$post->id?>/modify" class="btn btn-primary">수정</a>
                         <a href="<?=$post->id?>/delete" class="btn btn-primary">삭제</a>
-                        <?php
-                    }
-                    ?>
+                    <?php endif; ?>
                 </th>
             </tr>
             </tbody>

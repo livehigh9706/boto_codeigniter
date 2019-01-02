@@ -31,7 +31,7 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($notice as $post) : ?>
+            <?php foreach ($notice as $post): ?>
                 <tr>
                     <th><?=$post->id?></th>
                     <td>

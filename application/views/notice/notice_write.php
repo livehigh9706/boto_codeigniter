@@ -36,28 +36,20 @@
                     <th>파일#1</th>
                     <td>
                         <input type="file" id="file1" name="files[]"/>
-                        <?php
-                        if ($mode == 'modify' && $post->file1) {
-                            ?>
+                        <?php if ($mode == 'modify' && $post->file1): ?>
                             <div class="uploaded_file">등록된 파일 : <?= $post->file1 ?></div>
                             <input type="checkbox" name="delfile[]" value="file1"> 삭제
-                            <?php
-                        }
-                        ?>
+                        <?php endif; ?>
                     </td>
                 </tr>
                 <tr>
                     <th>파일#2</th>
                     <td>
                         <input type="file" id="file2" name="files[]"/>
-                        <?php
-                        if ($mode == 'modify' && $post->file2) {
-                            ?>
+                        <?php if ($mode == 'modify' && $post->file2): ?>
                             <div class="uploaded_file">등록된 파일 : <?= $post->file2 ?></div>
                             <input type="checkbox" name="delfile[]" value="file2"> 삭제
-                            <?php
-                        }
-                        ?>
+                        <?php endif; ?>
                     </td>
                 </tr>
                 </tbody>
